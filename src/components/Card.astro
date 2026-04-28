@@ -1,0 +1,15 @@
+---
+
+const { title, paragraph } = Astro.props;
+
+---
+
+<div class="card w-96 bg-base-100 card-md shadow-sm">
+  <div class="card-body">
+    <h2 class="card-title">{title}</h2>
+    <p>{paragraph}</p>
+    <div class="justify-end card-actions">
+      <slot name="actions"></slot>
+    </div>
+  </div>
+</div>
