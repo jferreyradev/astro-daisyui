@@ -1,0 +1,81 @@
+---
+interface Props {
+  autoplay?: boolean;
+  interval?: number;
+}
+
+const { autoplay = true, interval = 5000 } = Astro.props;
+---
+
+<div class="carousel carousel-center w-full bg-base-300 rounded-lg overflow-hidden">
+  <div id="slide1" class="carousel-item relative w-full">
+    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800" alt="Slide 1" class="w-full h-96 object-cover" />
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide4').scrollIntoView({behavior: 'smooth'})">❮</button>
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide2').scrollIntoView({behavior: 'smooth'})">❯</button>
+    </div>
+  </div>
+
+  <div id="slide2" class="carousel-item relative w-full">
+    <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=800" alt="Slide 2" class="w-full h-96 object-cover" />
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide1').scrollIntoView({behavior: 'smooth'})">❮</button>
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide3').scrollIntoView({behavior: 'smooth'})">❯</button>
+    </div>
+  </div>
+
+  <div id="slide3" class="carousel-item relative w-full">
+    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Slide 3" class="w-full h-96 object-cover" />
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide2').scrollIntoView({behavior: 'smooth'})">❮</button>
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide4').scrollIntoView({behavior: 'smooth'})">❯</button>
+    </div>
+  </div>
+
+  <div id="slide4" class="carousel-item relative w-full">
+    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800" alt="Slide 4" class="w-full h-96 object-cover" />
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide3').scrollIntoView({behavior: 'smooth'})">❮</button>
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide1').scrollIntoView({behavior: 'smooth'})">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- Indicadores -->
+<div class="flex justify-center gap-2 py-4">
+  <button class="btn btn-xs btn-active" onclick="document.getElementById('slide1').scrollIntoView({behavior: 'smooth'})" data-slide="1"></button>
+  <button class="btn btn-xs" onclick="document.getElementById('slide2').scrollIntoView({behavior: 'smooth'})" data-slide="2"></button>
+  <button class="btn btn-xs" onclick="document.getElementById('slide3').scrollIntoView({behavior: 'smooth'})" data-slide="3"></button>
+  <button class="btn btn-xs" onclick="document.getElementById('slide4').scrollIntoView({behavior: 'smooth'})" data-slide="4"></button>
+</div>
+
+<script define:vars={{ autoplay, interval }}>
+  if (autoplay) {
+    let currentSlide = 1;
+    const totalSlides = 4;
+
+    setInterval(() => {
+      currentSlide = currentSlide === totalSlides ? 1 : currentSlide + 1;
+      const slideElement = document.getElementById(`slide${currentSlide}`);
+      if (slideElement) {
+        slideElement.scrollIntoView({ behavior: 'smooth' });
+        updateIndicators(currentSlide);
+      }
+    }, interval);
+
+    function updateIndicators(slideNumber) {
+      document.querySelectorAll('[data-slide]').forEach((btn) => {
+        btn.classList.remove('btn-active');
+      });
+      document.querySelector(`[data-slide="${slideNumber}"]`)?.classList.add('btn-active');
+    }
+
+    // Actualizar indicadores cuando se hace clic en los botones
+    document.querySelectorAll('[data-slide]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        currentSlide = parseInt(btn.getAttribute('data-slide'));
+        updateIndicators(currentSlide);
+      });
+    });
+  }
+</script>
