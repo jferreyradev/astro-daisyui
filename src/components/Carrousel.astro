@@ -1,0 +1,53 @@
+<div class="carousel w-full" id="carousel">
+  <div id="slide1" class="carousel-item relative w-full">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+      class="w-full" />
+    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <button class="btn btn-circle" data-slide="4">❮</button>
+      <button class="btn btn-circle" data-slide="2">❯</button>
+    </div>
+  </div>
+  <div id="slide2" class="carousel-item relative w-full hidden">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+      class="w-full" />
+    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <button class="btn btn-circle" data-slide="1">❮</button>
+      <button class="btn btn-circle" data-slide="3">❯</button>
+    </div>
+  </div>
+  <div id="slide3" class="carousel-item relative w-full hidden">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+      class="w-full" />
+    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <button class="btn btn-circle" data-slide="2">❮</button>
+      <button class="btn btn-circle" data-slide="4">❯</button>
+    </div>
+  </div>
+  <div id="slide4" class="carousel-item relative w-full hidden">
+    <img
+      src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+      class="w-full" />
+    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <button class="btn btn-circle" data-slide="3">❮</button>
+      <button class="btn btn-circle" data-slide="1">❯</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.carousel .btn-circle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const n = btn.getAttribute('data-slide');
+      const slides = ['slide1', 'slide2', 'slide3', 'slide4'];
+      slides.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+      const target = document.getElementById('slide' + n);
+      if (target) target.classList.remove('hidden');
+    });
+  });
+</script>
