@@ -6,6 +6,7 @@ import Content from "./Content.astro"
 import Footer from "./Footer.astro"
 import Card from "./Card.astro"
 import Carousel from "./Carrousel.astro"
+import WhatsappChatButton from "./WhatsappChatButton.astro"
 ---
 
 <body>
@@ -17,6 +18,7 @@ import Carousel from "./Carrousel.astro"
       <Content title="Título principal 1" paragraph="Esta es una estructura base. Aquí va tu contenido de prueba." >      
        <Carousel autoplay={true} interval={2000}/>  
       </Content>
+       <WhatsappChatButton />
       <Content title="Título principal 2" paragraph="Esta es una estructura base. Aquí va tu contenido de prueba." sm="sm:grid-cols-2">      
         <Card title="Card 1" paragraph="Texto de ejemplo."></Card>
          <Card title="Card 2" paragraph="Texto de ejemplo."></Card>
