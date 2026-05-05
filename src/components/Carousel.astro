@@ -5,11 +5,20 @@ interface Props {
 }
 
 const { autoplay = true, interval = 2000 } = Astro.props;
+
+import { Image } from 'astro:assets';
+import imgA from "../assets/Portada-Facebook.png"
+
+import imgB from "../assets/01.png"
+import imgC from "../assets/02.png"
+import imgD from "../assets/03.png"
+import imgE from "../assets/PortadaWeb-copia-scaled.jpg"
+import imgF from "../assets/PAGINA.jpg"
 ---
 
 <div class="carousel carousel-center w-full bg-base-300 rounded-lg overflow-hidden">
   <div id="slide1" class="carousel-item relative w-full">
-    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800" alt="Slide 1" class="w-full h-96 object-cover" />
+    <Image  src={imgA} alt="Slide 1" class="w-full h-96 object-cover" />
     <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
       <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide4').scrollIntoView({behavior: 'smooth'})">❮</button>
       <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide2').scrollIntoView({behavior: 'smooth'})">❯</button>
@@ -17,7 +26,7 @@ const { autoplay = true, interval = 2000 } = Astro.props;
   </div>
 
   <div id="slide2" class="carousel-item relative w-full">
-    <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=800" alt="Slide 2" class="w-full h-96 object-cover" />
+    <Image  src={imgB} alt="Slide 2" class="w-full h-96 object-cover" />
     <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
       <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide1').scrollIntoView({behavior: 'smooth'})">❮</button>
       <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide3').scrollIntoView({behavior: 'smooth'})">❯</button>
@@ -25,7 +34,7 @@ const { autoplay = true, interval = 2000 } = Astro.props;
   </div>
 
   <div id="slide3" class="carousel-item relative w-full">
-    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Slide 3" class="w-full h-96 object-cover" />
+    <Image  src={imgC} alt="Slide 3" class="w-full h-96 object-cover" />
     <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
       <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide2').scrollIntoView({behavior: 'smooth'})">❮</button>
       <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide4').scrollIntoView({behavior: 'smooth'})">❯</button>
@@ -33,9 +42,25 @@ const { autoplay = true, interval = 2000 } = Astro.props;
   </div>
 
   <div id="slide4" class="carousel-item relative w-full">
-    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800" alt="Slide 4" class="w-full h-96 object-cover" />
+    <Image  src={imgD} alt="Slide 4" class="w-full h-96 object-cover" />
     <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
       <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide3').scrollIntoView({behavior: 'smooth'})">❮</button>
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide5').scrollIntoView({behavior: 'smooth'})">❯</button>
+    </div>
+  </div>
+
+  <div id="slide5" class="carousel-item relative w-full">
+    <Image  src={imgE} alt="Slide 5" class="w-full h-96 object-cover" />
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide4').scrollIntoView({behavior: 'smooth'})">❮</button>
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide6').scrollIntoView({behavior: 'smooth'})">❯</button>
+    </div>
+  </div>
+
+  <div id="slide6" class="carousel-item relative w-full">
+    <Image  src={imgF} alt="Slide 6" class="w-full h-96 object-cover" />
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide5').scrollIntoView({behavior: 'smooth'})">❮</button>
       <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide1').scrollIntoView({behavior: 'smooth'})">❯</button>
     </div>
   </div>
@@ -47,12 +72,14 @@ const { autoplay = true, interval = 2000 } = Astro.props;
   <button class="btn btn-xs" onclick="document.getElementById('slide2').scrollIntoView({behavior: 'smooth'})" data-slide="2"></button>
   <button class="btn btn-xs" onclick="document.getElementById('slide3').scrollIntoView({behavior: 'smooth'})" data-slide="3"></button>
   <button class="btn btn-xs" onclick="document.getElementById('slide4').scrollIntoView({behavior: 'smooth'})" data-slide="4"></button>
+  <button class="btn btn-xs" onclick="document.getElementById('slide5').scrollIntoView({behavior: 'smooth'})" data-slide="5"></button>
+  <button class="btn btn-xs" onclick="document.getElementById('slide6').scrollIntoView({behavior: 'smooth'})" data-slide="6"></button>
 </div>
 
 <script define:vars={{ autoplay, interval }}>
   if (autoplay) {
     let currentSlide = 1;
-    const totalSlides = 4;
+    const totalSlides = 6;
 
     setInterval(() => {
       currentSlide = currentSlide === totalSlides ? 1 : currentSlide + 1;

@@ -46,13 +46,14 @@
 <script>
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 1024) {
+      const active = document.activeElement;
+      if (active instanceof HTMLElement) {
+        active.blur();
+      }
+
       const dropdown = document.querySelector('.dropdown');
       if (dropdown) {
         dropdown.classList.remove('dropdown-open');
-        const active = document.activeElement;
-        if (active && dropdown.contains(active)) {
-          active.blur();
-        }
       }
     }
   });
