@@ -1,20 +1,41 @@
 ---
+import { Image } from 'astro:assets';
+import Logo from "../assets/LogoMasEsthetic.png"
 ---
 
-<header class="navbar bg-base-100 shadow-lg">
+<header class="navbar bg-base-100 shadow-sm sticky top-0 z-10">
   <div class="navbar bg-base-100 shadow-sm">
-
-    <a class="btn btn-ghost text-xl">Logo</a>
+    <Image  src={Logo} alt="Logo" width="150" height="80"/>   
   </div>
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
+  <div class="navbar-center hidden lg:flex ">
+    <ul class="menu menu-horizontal px-1 text-base">
       <li><a>Inicio</a></li>
+      <li>
+      <li><a>Centro certificado</a></li>
+      <li>
+        <details>
+          <summary>Depilación Láser</summary>
+          <ul class="p-2 bg-base-100 w-40 z-1">
+            <li><a>Zonas</a></li>
+            <li><a>Soprano Titanium</a></li>
+          </ul>
+        </details>
+      </li>
       <li>
         <details>
           <summary>Servicios</summary>
           <ul class="p-2 bg-base-100 w-40 z-1">
             <li><a>Método Soprano</a></li>
             <li><a>Tratamientos corporales</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>Sucursales</summary>
+          <ul class="p-2 bg-base-100 w-40 z-1">
+            <li><a>San Miguel de Tucumán</a></li>
+            <li><a>Yerba Buena</a></li>
           </ul>
         </details>
       </li>
@@ -30,6 +51,7 @@
         tabindex="-1"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li><a>Inicio</a></li>
+        <li><a>Centro Certificado</a></li>
         <li>
           <a>Servicios</a>
           <ul class="p-2">
@@ -37,6 +59,25 @@
             <li><a>Tratamientos corporales</a></li>
           </ul>
         </li>
+          <li>
+            <a>Depilación Láser</a>
+            <ul class="p-2">
+              <li><a>Zonas</a></li>
+              <li><a>Soprano Titanium</a></li>
+            </ul>
+        <li>
+          <a>Servicios</a>
+          <ul class="p-2">
+            <li><a>Método Soprano</a></li>
+            <li><a>Tratamientos corporales</a></li>
+          </ul>
+        </li>
+         <li>
+          <a>Sucursales</a>
+          <ul class="p-2">
+            <li><a>San Miguel de Tucumán</a></li>
+            <li><a>Yerba Buena</a></li>
+          </ul>
         <li><a>Novedades</a></li>
       </ul>
     </div>

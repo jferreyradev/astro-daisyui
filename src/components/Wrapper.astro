@@ -21,27 +21,34 @@ import img7 from "../assets/web3.png"
 
 <body>
     <Header></Header>
-    <div class="mx-auto grid w-full max-w-6xl gap-6 px-4 py-8 md:grid-cols-12 min-h-screen">
+    <div class=" mx-auto grid w-full max-w-6xl gap-6 px-4 py-8 md:grid-cols-12 min-h-screen">
     
        
-      <div class="md:col-span-12">
+      <div class="md:col-span-12 font-sans font-normal text-gray-700">
       <Content title="" paragraph="" >      
        <Carousel autoplay={true} interval={4000}/>  
       </Content>
-       <WhatsappChatButton />
-      <Content title="Nuestros Servicios" paragraph="" sm="sm:grid-cols-4" >      
+      <WhatsappChatButton />
+      <Content  title="Nuestros Servicios" paragraph="" sm="sm:grid-cols-4" >      
         <Card title="" paragraph="" width="w-60" img={img1}></Card>
-         <Card title="" paragraph="" width="w-60" img={img2}></Card>
-          <Card title="" paragraph="" width="w-60" img={img3}></Card>
-         <Card title="" paragraph="" width="w-60" img={img4}></Card>
+        <Card title="" paragraph="" width="w-60" img={img2}></Card>
+        <Card title="" paragraph="" width="w-60" img={img3}></Card>
+        <Card title="" paragraph="" width="w-60" img={img4}></Card>
      </Content>
      <Content title="Novedades" paragraph="" sm="sm:grid-cols-3">      
         <Card title="Contamos con equipo propio Platinum | Depilación láser" paragraph="Texto de ejemplo." width="w-90" img={img5}></Card>
-         <Card title="Pellet- Nuevo tratamiento a cargo de la Dra. Perla Albornoz" paragraph="Texto de ejemplo." width="w-90" img={img6}></Card>
-          <Card title="Viví el verano libre de vellos" paragraph="Texto de ejemplo." width="w-90" img={img7}></Card>
-         
+        <Card title="Pellet- Nuevo tratamiento a cargo de la Dra. Perla Albornoz" paragraph="Texto de ejemplo." width="w-90" img={img6}></Card>
+        <Card title="Viví el verano libre de vellos" paragraph="Texto de ejemplo." width="w-90" img={img7}></Card>         
      </Content>
+     
       </div>
-        </div>
+     <Content title="Quienes Somos" paragraph="Mas Esthetic es un Centro de Medicina Estética y Depilación Láser, certificado por Soprano. Contamos con el equipo más avanzado, efectivo y seguro Soprano Ice Platinum.
+      Dra Perla Adriana Albornoz
+      MN: 7034" sm="sm:grid-cols-2" >        
+     </Content>
+      <Content title="" paragraph="" sm="sm:grid-cols-2" >  
+        <Card title="" paragraph="" width="w-150" img={img5}></Card>      
+     </Content>
+    </div>
     <Footer />
   </body>
