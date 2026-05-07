@@ -85,10 +85,10 @@ import imgG from "../assets/SLIDER-PAGINA-WEB.png"
   <button class="btn btn-xs" onclick="document.getElementById('slide6').scrollIntoView({behavior: 'smooth'})" data-slide="6"></button>
 </div>
 
-<!--<script define:vars={{ autoplay, interval }}>
+<script define:vars={{ autoplay, interval }}>
   if (autoplay) {
     let currentSlide = 1;
-    const totalSlides = 6;
+    const totalSlides = 4;
 
     setInterval(() => {
       currentSlide = currentSlide === totalSlides ? 1 : currentSlide + 1;
@@ -108,10 +108,15 @@ import imgG from "../assets/SLIDER-PAGINA-WEB.png"
 
     // Actualizar indicadores cuando se hace clic en los botones
     document.querySelectorAll('[data-slide]').forEach((btn) => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (event) => {
+        event.stopPropagation(); // ⛔ evita que el clic suba al contenedor
         currentSlide = parseInt(btn.getAttribute('data-slide'));
         updateIndicators(currentSlide);
+        const slideElement = document.getElementById(`slide${currentSlide}`);
+        if (slideElement) {
+          slideElement.scrollIntoView({ behavior: 'smooth' });
+        }
       });
     });
   }
-</script> -->
+</script>
