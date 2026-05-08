@@ -109,9 +109,9 @@ import imgG from "../assets/SLIDER-PAGINA-WEB.png"
     // Actualizar indicadores cuando se hace clic en los botones
     document.querySelectorAll('[data-slide]').forEach((btn) => {
       btn.addEventListener('click', (event) => {
-        event.stopPropagation(); // ⛔ evita que el clic suba al contenedor
+         event.stopPropagation(); // ⛔ evita que el clic suba al contenedor
         currentSlide = parseInt(btn.getAttribute('data-slide'));
-        updateIndicators(currentSlide);
+        updateIndicators(currentSlide);        
         const slideElement = document.getElementById(`slide${currentSlide}`);
         if (slideElement) {
           slideElement.scrollIntoView({ behavior: 'smooth' });

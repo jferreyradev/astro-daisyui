@@ -6,6 +6,7 @@ import Content from "./Content.astro"
 import Footer from "./Footer.astro"
 import Card from "./Card.astro"
 import Carousel from "./Carousel.astro"
+
 import WhatsappChatButton from "./WhatsappChatButton.astro"
 
 
@@ -17,6 +18,7 @@ import img4 from "../assets/Medicina.png"
 import img5 from "../assets/web1.png"
 import img6 from "../assets/web2.png"
 import img7 from "../assets/web3.png"
+import MiniCarousel from "./MiniCarousel.astro"
 ---
 
 <body>
@@ -46,8 +48,8 @@ import img7 from "../assets/web3.png"
       Dra Perla Adriana Albornoz
       MN: 7034" sm="sm:grid-cols-2" >        
      </Content>
-      <Content title="" paragraph="" sm="sm:grid-cols-2" >  
-        <Card title="" paragraph="" width="w-150" img={img5}></Card>      
+      <Content title="" paragraph="" sm="sm:grid-cols-1" >  
+        <MiniCarousel/>  
      </Content>
     </div>
     <Footer />
