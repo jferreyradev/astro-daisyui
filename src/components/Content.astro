@@ -6,7 +6,7 @@ const { title, paragraph, sm } = Astro.props;
   <div class="rounded-xl bg-white p-6">
     <h1 class="text-4xl font-normal" style="text-align: center;">{title}</h1>
     <p class="mt-2 text-gray-600">{paragraph}</p>
-    <div class={` mt-6 grid gap-2 ${sm || ''}`}>
+    <div class={` mt-6 grid gap-4 ${sm || ''}`}>
       <slot></slot>
     </div>
   </div>
