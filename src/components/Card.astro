@@ -1,15 +1,15 @@
 ---
 
-const { title, paragraph } = Astro.props;
-
+const { title, paragraph,width,img} = Astro.props;
+import { Image } from 'astro:assets';
 ---
-
-<div class="card w-96 bg-base-100 card-md shadow-sm">
+<div class={`card bg-base-100 ${width || ''} shadow-sm`}>
+  
+  <figure>
+    <Image src={img} alt="" />
+  </figure>
   <div class="card-body">
     <h2 class="card-title">{title}</h2>
     <p>{paragraph}</p>
-    <div class="justify-end card-actions">
-      <slot name="actions"></slot>
-    </div>
   </div>
 </div>

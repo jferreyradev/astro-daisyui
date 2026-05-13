@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+
+
+import img2 from "../assets/IMG_5764.jpg"
+import img3 from "../assets/IMG_5797.jpg"
+import img4 from "../assets/IMG_5802.jpg"
+import img5 from "../assets/IMG_5803.jpg"
+import img6 from "../assets/IMG_5809.jpg"
+
+
+---
+
+
+<div class="carousel w-full">
+  <div id="SL1" class="carousel-item relative w-full">
+    <Image  src={img2} alt="SL1" class="w-full" />
+    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#SL4" class="btn btn-circle">❮</a>
+      <a href="#SL2" class="btn btn-circle">❯</a>
+    </div>
+  </div>
+  <div id="SL2" class="carousel-item relative w-full">
+    <Image  src={img3} alt="SL2" class="w-full " />
+    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#SL1" class="btn btn-circle">❮</a>
+      <a href="#SL3" class="btn btn-circle">❯</a>
+    </div>
+  </div>
+  <div id="SL3" class="carousel-item relative w-full">
+    <Image  src={img4} alt="SL3" class="w-full" />
+    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#SL2" class="btn btn-circle">❮</a>
+      <a href="#SL4" class="btn btn-circle">❯</a>
+    </div>
+  </div>
+  <div id="SL4" class="carousel-item relative w-full">
+   <Image  src={img5} alt="SL4" class="w-full " />
+    <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+      <a href="#SL3" class="btn btn-circle">❮</a>
+      <a href="#SL1" class="btn btn-circle">❯</a>
+    </div>
+  </div>
+</div>
