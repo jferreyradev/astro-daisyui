@@ -1,7 +1,6 @@
 
 ---
 import Header from "./Header.astro"
-import Aside from "./Aside.astro"
 import Content from "./Content.astro"
 import Footer from "./Footer.astro"
 import Card from "./Card.astro"
@@ -9,7 +8,7 @@ import Carousel from "./Carousel.astro"
 
 import WhatsappChatButton from "./WhatsappChatButton.astro"
 
-
+import Carrusel from "./vue/Carrusel.vue"
 
 import img1 from "../assets/Corporal.png"
 import img2 from "../assets/Depilacion.png"
@@ -19,6 +18,9 @@ import img5 from "../assets/web1.png"
 import img6 from "../assets/web2.png"
 import img7 from "../assets/web3.png"
 import MiniCarousel from "./MiniCarousel.astro"
+
+// Carousel slides data
+
 ---
 
 <body>
@@ -28,7 +30,9 @@ import MiniCarousel from "./MiniCarousel.astro"
        
       <div class="md:col-span-12 font-sans font-normal text-gray-700">
       <Content title="" paragraph="" >      
-       <Carousel autoplay={true} interval={4000}/>  
+       
+        <Carousel />
+
       </Content>
       <WhatsappChatButton />
       <Content  title="Nuestros Servicios" paragraph="" sm="sm:grid-cols-4" >      
@@ -41,9 +45,9 @@ import MiniCarousel from "./MiniCarousel.astro"
         <Card title="Contamos con equipo propio Platinum | Depilación láser" paragraph="Texto de ejemplo." width="w-90" img={img5}></Card>
         <Card title="Pellet- Nuevo tratamiento a cargo de la Dra. Perla Albornoz" paragraph="Texto de ejemplo." width="w-90" img={img6}></Card>
         <Card title="Viví el verano libre de vellos" paragraph="Texto de ejemplo." width="w-90" img={img7}></Card>         
-     </Content>
-     
+     </Content>     
       </div>
+
      <Content title="Quienes Somos" paragraph="Mas Esthetic es un Centro de Medicina Estética y Depilación Láser, certificado por Soprano. Contamos con el equipo más avanzado, efectivo y seguro Soprano Ice Platinum.
       Dra Perla Adriana Albornoz
       MN: 7034" sm="sm:grid-cols-2" >        
@@ -51,8 +55,8 @@ import MiniCarousel from "./MiniCarousel.astro"
       <Content title="" paragraph="" sm="sm:grid-cols-1" >  
         <MiniCarousel/>  
         <button class="btn btn-outline btn-info">Centros médicos certificados</button>
-     </Content>
+     </Content>   
      
-    </div>
+    </div>   
     <Footer />
   </body>
