@@ -1,7 +1,6 @@
 
 ---
 import Header from "./Header.astro"
-import Aside from "./Aside.astro"
 import Content from "./Content.astro"
 import Footer from "./Footer.astro"
 import Card from "./Card.astro"
@@ -9,7 +8,7 @@ import Carousel from "./Carousel.astro"
 
 import WhatsappChatButton from "./WhatsappChatButton.astro"
 
-
+import Carrusel from "./vue/Carrusel.vue"
 
 import img1 from "../assets/Corporal.png"
 import img2 from "../assets/Depilacion.png"
@@ -19,6 +18,9 @@ import img5 from "../assets/web1.png"
 import img6 from "../assets/web2.png"
 import img7 from "../assets/web3.png"
 import MiniCarousel from "./MiniCarousel.astro"
+
+// Carousel slides data
+
 ---
 
 <body>
@@ -28,7 +30,9 @@ import MiniCarousel from "./MiniCarousel.astro"
        
       <div class="md:col-span-12 font-sans font-normal text-gray-700">
       <Content title="" paragraph="" >      
-       <Carousel autoplay={true} interval={4000}/>  
+       
+        <Carousel />
+
       </Content>
       <WhatsappChatButton />
       <Content  title="Nuestros Servicios" paragraph="" sm="sm:grid-cols-4" >      

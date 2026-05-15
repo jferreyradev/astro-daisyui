@@ -1,122 +1,57 @@
 ---
-interface Props {
-  autoplay?: boolean;
-  interval?: number;
-}
 
-const { autoplay = true, interval = 2000 } = Astro.props;
+import imgA from "../assets/carrusel/Portada-Facebook.png"
 
-import { Image } from 'astro:assets';
-import imgA from "../assets/Portada-Facebook.png"
+import imgB from "../assets/carrusel/01.png"
+import imgC from "../assets/carrusel/02.png"
+import imgD from "../assets/carrusel/03.png"
+import imgE from "../assets/carrusel/PortadaWeb-copia-scaled.jpg"
+import imgF from "../assets/carrusel/PAGINA.jpg"
+import imgG from "../assets/carrusel/SLIDER-PAGINA-WEB.png"
 
-import imgB from "../assets/01.png"
-import imgC from "../assets/02.png"
-import imgD from "../assets/03.png"
-import imgE from "../assets/PortadaWeb-copia-scaled.jpg"
-import imgF from "../assets/PAGINA.jpg"
-import imgG from "../assets/SLIDER-PAGINA-WEB.png"
+import Carrusel from "./vue/Carrusel.vue"
+
+
+const carouselSlides = [
+  {
+    image: imgA.src,
+    title: "Depilación Láser",
+    description: "Equipamiento Soprano Ice Platinum"
+  },
+  {
+    image: imgB.src,
+    title: "Tratamiento 1",
+    description: ""
+  },
+  {
+    image: imgC.src,
+    title: "Tratamiento 2",
+    description: ""
+  },
+  {
+    image: imgD.src,
+    title: "Tratamiento 3",
+    description: ""
+  },
+  {
+    image: imgE.src,
+    title: "Centro Mas Esthetic",
+    description: ""
+  },
+  {
+    image: imgF.src,
+    title: "Nuestro Centro",
+    description: ""
+  },
+  {
+    image: imgG.src,
+    title: "Slider Página Web",
+    description: ""
+  }
+];
+
 ---
 
-<div class="carousel carousel-center w-full bg-base-300 rounded-lg overflow-hidden">
-  <div id="slide1" class="carousel-item relative w-full">
-    <Image  src={imgA} alt="Slide 1" class="w-full h-96 object-cover" />
-    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide7').scrollIntoView({behavior: 'smooth'})">❮</button>
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide2').scrollIntoView({behavior: 'smooth'})">❯</button>
-    </div>
-  </div>
-
-  <div id="slide2" class="carousel-item relative w-full">
-    <Image  src={imgB} alt="Slide 2" class="w-full h-96 object-cover" />
-    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide1').scrollIntoView({behavior: 'smooth'})">❮</button>
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide3').scrollIntoView({behavior: 'smooth'})">❯</button>
-    </div>
-  </div>
-
-  <div id="slide3" class="carousel-item relative w-full">
-    <Image  src={imgC} alt="Slide 3" class="w-full h-96 object-cover" />
-    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide2').scrollIntoView({behavior: 'smooth'})">❮</button>
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide4').scrollIntoView({behavior: 'smooth'})">❯</button>
-    </div>
-  </div>
-
-  <div id="slide4" class="carousel-item relative w-full">
-    <Image  src={imgD} alt="Slide 4" class="w-full h-96 object-cover" />
-    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide3').scrollIntoView({behavior: 'smooth'})">❮</button>
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide5').scrollIntoView({behavior: 'smooth'})">❯</button>
-    </div>
-  </div>
-
-  <div id="slide5" class="carousel-item relative w-full">
-    <Image  src={imgE} alt="Slide 5" class="w-full h-96 object-cover" />
-    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide4').scrollIntoView({behavior: 'smooth'})">❮</button>
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide6').scrollIntoView({behavior: 'smooth'})">❯</button>
-    </div>
-  </div>
-
-  <div id="slide6" class="carousel-item relative w-full">
-    <Image  src={imgF} alt="Slide 6" class="w-full h-96 object-cover" />
-    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide5').scrollIntoView({behavior: 'smooth'})">❮</button>
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide7').scrollIntoView({behavior: 'smooth'})">❯</button>
-    </div>
-  </div>
-
-   <div id="slide7" class="carousel-item relative w-full">
-    <Image  src={imgG} alt="Slide 7" class="w-full h-96 object-cover" />
-    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide6').scrollIntoView({behavior: 'smooth'})">❮</button>
-      <button class="btn btn-circle btn-sm" onclick="document.getElementById('slide1').scrollIntoView({behavior: 'smooth'})">❯</button>
-    </div>
-  </div>
+<div>
+  <Carrusel slides={carouselSlides} interval={3000} client:visible />
 </div>
-
-<!-- Indicadores -->
-<div class="flex justify-center gap-2 py-4">
-  <button class="btn btn-xs btn-active" onclick="document.getElementById('slide1').scrollIntoView({behavior: 'smooth'})" data-slide="1"></button>
-  <button class="btn btn-xs" onclick="document.getElementById('slide2').scrollIntoView({behavior: 'smooth'})" data-slide="2"></button>
-  <button class="btn btn-xs" onclick="document.getElementById('slide3').scrollIntoView({behavior: 'smooth'})" data-slide="3"></button>
-  <button class="btn btn-xs" onclick="document.getElementById('slide4').scrollIntoView({behavior: 'smooth'})" data-slide="4"></button>
-  <button class="btn btn-xs" onclick="document.getElementById('slide5').scrollIntoView({behavior: 'smooth'})" data-slide="5"></button>
-  <button class="btn btn-xs" onclick="document.getElementById('slide6').scrollIntoView({behavior: 'smooth'})" data-slide="6"></button>
-</div>
-
-<script define:vars={{ autoplay, interval }}>
-  if (autoplay) {
-    let currentSlide = 1;
-    const totalSlides = 4;
-
-    setInterval(() => {
-      currentSlide = currentSlide === totalSlides ? 1 : currentSlide + 1;
-      const slideElement = document.getElementById(`slide${currentSlide}`);
-      if (slideElement) {
-        slideElement.scrollIntoView({ behavior: 'smooth' });
-        updateIndicators(currentSlide);
-      }
-    }, interval);
-
-    function updateIndicators(slideNumber) {
-      document.querySelectorAll('[data-slide]').forEach((btn) => {
-        btn.classList.remove('btn-active');
-      });
-      document.querySelector(`[data-slide="${slideNumber}"]`)?.classList.add('btn-active');
-    }
-
-    // Actualizar indicadores cuando se hace clic en los botones
-    document.querySelectorAll('[data-slide]').forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-         event.stopPropagation(); // ⛔ evita que el clic suba al contenedor
-        currentSlide = parseInt(btn.getAttribute('data-slide'));
-        updateIndicators(currentSlide);        
-        const slideElement = document.getElementById(`slide${currentSlide}`);
-        if (slideElement) {
-          slideElement.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-  }
-</script>
