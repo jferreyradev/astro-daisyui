@@ -10,6 +10,7 @@ import WhatsappChatButton from "./WhatsappChatButton.astro"
 
 import Carrusel from "./vue/Carrusel.vue"
 
+
 import img1 from "../assets/Corporal.webp"
 import img2 from "../assets/Depilacion.webp"
 import img3 from "../assets/Facial.webp"
@@ -42,9 +43,9 @@ import MiniCarousel from "./MiniCarousel.astro"
         <Card title="" paragraph="" width="w-60" img={img4}></Card>
      </Content>
      <Content title="Novedades" paragraph="" sm="sm:grid-cols-3">      
-        <Card title="Contamos con equipo propio Platinum | Depilación láser" paragraph="Texto de ejemplo." width="w-90" img={img5}></Card>
-        <Card title="Pellet- Nuevo tratamiento a cargo de la Dra. Perla Albornoz" paragraph="Texto de ejemplo." width="w-90" img={img6}></Card>
-        <Card title="Viví el verano libre de vellos" paragraph="Texto de ejemplo." width="w-90" img={img7}></Card>         
+        <Card title="Contamos con equipo propio Platinum | Depilación láser" paragraph="" width="w-90" img={img5}></Card>
+        <Card title="Pellet- Nuevo tratamiento a cargo de la Dra. Perla Albornoz" paragraph="" width="w-90" img={img6}></Card>
+        <Card title="Viví el verano libre de vellos" paragraph="" width="w-90" img={img7}></Card>         
      </Content>     
       </div>
 
@@ -54,7 +55,9 @@ import MiniCarousel from "./MiniCarousel.astro"
      </Content>
       <Content title="" paragraph="" sm="sm:grid-cols-1" >  
         <MiniCarousel/>  
-        <button class="btn btn-outline btn-info">Centros médicos certificados</button>
+        <div class="h6">
+         <button class="btn btn-outline btn-info">Centros médicos certificados</button>
+        </div>        
      </Content>   
      
     </div>   
